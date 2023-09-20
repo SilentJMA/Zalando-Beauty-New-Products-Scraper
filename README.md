@@ -29,9 +29,17 @@ Before using the Zalando Product Scraper, ensure you have the following prerequi
 
 1. Clone the repository to your local machine:
 
-   ```shell
+ ```bash
    git clone https://github.com/SilentJMA/Zalando-Beauty-New-Product-Scraper.git
 ```
+2. Change to the project directory:
+
+3. Install the required Python packages:
+
+ ```bash
+   pip install -r requirements.txt
+```
+
 # Usage
 ## Configuration
 
@@ -44,26 +52,27 @@ Define the import_interval variable to set the interval for running the import (
 
 To run the scraper, simply execute the script using Python:
 
-   ```shell
-python zalando_scraper.py
+ ```bash
+python zalando_beauty_scraper.py
 ```
 
 The script will scrape the product information, save it to the specified CSV file, and wait for the next scheduled run.
 
 # Features
-
 Scrapes product information including brand name, product name, URL, and price.
 Handles German product names and UTF-8 encoding.
 Checks for new products and skips existing ones.
 Scheduled execution for periodic updates.
-Data Storage
+
+# Data Storage
 Product data is stored in a CSV file named zalando_new_products_XX.csv. The CSV file contains the following columns:
 
 Brand Name
 Product Name
 Product URL
 Product Price
-Scheduled Execution
+
+# Scheduled Execution
 The script runs on a schedule defined by the import_interval variable. It will automatically update the product data at the specified interval.
 
 # Contributing
