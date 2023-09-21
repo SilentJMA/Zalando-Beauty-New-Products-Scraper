@@ -11,8 +11,8 @@ url = 'https://en.zalando.de/beauty-women/?order=activation_date'
 current_date = datetime.now().strftime("%d%m%Y%H%M%S")
 csv_filename = f'Zalando_new_products_{current_date}.csv'
 
-# Define the limit of products to collect.
-product_limit = 25
+# Define the limit of products to collect (84 products).
+product_limit = 30
 
 # Define the interval for running the import (in seconds, set to 24 hours).
 import_interval = 24 * 60 * 60  # 24 hours
@@ -54,15 +54,19 @@ def scrape_and_save_to_csv():
             product_price = product.find('span', class_='sDq_FX lystZ1 FxZV-M HlZ_Tf')
             product_price = product_price.text.strip() if product_price else ''
 
+            # Check for Premium Delivery tag and class
+            premium_delivery = product.find('p', class_='sDq_FX lystZ1 FxZV-M HlZ_Tf ZkIJC- r9BRio qXofat EKabf7')
+            premium_delivery_text = "Premium Delivery" if premium_delivery else "No"
+
             # Check if the product is new
             if is_new_product(product_name, previous_products):
-                products_data.append([product_brand_name, product_name, product_url, product_price])
+                products_data.append([product_brand_name, product_name, product_url, product_price, premium_delivery_text])
 
         # Save the data to a CSV file with UTF-8 encoding
         if products_data:
             with open(csv_filename, mode='w', newline='', encoding='utf-8') as csv_file:
                 csv_writer = csv.writer(csv_file)
-                csv_writer.writerow(['Brand Name', 'Product Name', 'Product URL', 'Product Price'])
+                csv_writer.writerow(['Brand Name', 'Product Name', 'Product URL', 'Product Price', 'Premium Delivery'])
                 csv_writer.writerows(products_data)
 
             print(f"Data saved to '{csv_filename}'")
