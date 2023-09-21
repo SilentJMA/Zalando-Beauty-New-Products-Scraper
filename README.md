@@ -48,8 +48,11 @@ cd Zalando-Beauty-New-Product-Scraper
 ## Configuration
 
 Modify the url variable in the script to specify the Zalando category URL you want to scrape.
+<br>
 Set the csv_filename variable to specify the name of the CSV file where the data will be saved.
+<br>
 Adjust the product_limit variable to limit the number of products to scrape in each run.
+<br>
 Define the import_interval variable to set the interval for running the import (in seconds).
 
 ## Running the Scraper
