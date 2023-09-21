@@ -18,7 +18,7 @@ os.makedirs(csv_directory, exist_ok=True)
 csv_filename = os.path.join(csv_directory, f'zalando_products_{int(time.time())}.csv')
 
 # Define the limit of products to collect (84 products).
-product_limit = 84
+product_limit = 30
 
 # Define the interval for running the import (in seconds, set to 24 hours).
 import_interval = 24 * 60 * 60  # 24 hours
