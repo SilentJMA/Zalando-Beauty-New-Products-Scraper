@@ -6,7 +6,7 @@ from datetime import datetime, timedelta
 import os
 
 # Define the URL of the zalando.de category you want to scrape.
-url = 'https://en.zalando.de/beauty-women/?order=activation_date'
+url = 'https://en.zalando.de/beauty-skincare/?order=activation_date'
 
 # Define the CSV directory to save the results.
 csv_directory = 'csv_export_data/'
