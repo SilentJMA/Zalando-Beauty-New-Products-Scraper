@@ -34,6 +34,10 @@ Before using the Zalando Product Scraper, ensure you have the following prerequi
 ```
 2. Change to the project directory:
 
+```bash
+cd Zalando-Beauty-New-Product-Scraper
+```
+
 3. Install the required Python packages:
 
  ```bash
