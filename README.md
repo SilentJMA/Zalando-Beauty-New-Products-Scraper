@@ -11,7 +11,9 @@ Zalando Beauty New Product Scraper is a Python script for scraping product infor
   - [Configuration](#configuration)
   - [Running the Scraper](#running-the-scraper)
 - [Features](#features)
-- [Data Storage](#data-storage)
+  - [Scraping Product Data](#scraping-product-data)
+  - [CSV Data Storage](#csv-data-storage)
+  - [Monitoring New Products](#monitoring-new-products)
 - [Scheduled Execution](#scheduled-execution)
 - [Contributing](#contributing)
 - [License](#license)
@@ -46,14 +48,10 @@ cd Zalando-Beauty-New-Product-Scraper
 
 # Usage
 ## Configuration
-
-Modify the url variable in the script to specify the Zalando category URL you want to scrape.
-<br>
-Set the csv_filename variable to specify the name of the CSV file where the data will be saved.
-<br>
-Adjust the product_limit variable to limit the number of products to scrape in each run.
-<br>
-Define the import_interval variable to set the interval for running the import (in seconds).
+<li>Modify the <b>url</b> variable in the script to specify the Zalando category URL you want to scrape.</li>
+<li>Define the <b>csv_directory</b> variable to specify the directory where CSV files will be saved.</li>
+<li>Set the <b>product_limit</b> variable to limit the number of products to scrape in each run.</li>
+<li>Define the <b>import_interval</b> variable to set the interval for running the import (in seconds).</li>
 
 ## Running the Scraper
 
@@ -66,18 +64,29 @@ python zalando_beauty_scraper.py
 The script will scrape the product information, save it to the specified CSV file, and wait for the next scheduled run.
 
 # Features
-Scrapes product information including brand name, product name, URL, and price.
-Handles German product names and UTF-8 encoding.
-Checks for new products and skips existing ones.
-Scheduled execution for periodic updates.
+<p><li>Scrapes product information including brand name, product name, URL, and price.</li>
+<li>Handles German product names and UTF-8 encoding.</li>
+<li>Checks for new products and skips existing ones.</li>
+<li>Scheduled execution for periodic updates.</li>
 
-# Data Storage
-Product data is stored in a CSV file named zalando_new_products_XX.csv. The CSV file contains the following columns:
+# CSV Data Storage
+<p>Each import creates a new CSV file with a timestamp in the filename.
+Previous CSV files are retained in the specified directory.
+The CSV files contain data for new products found during each import.</p>
 
-Brand Name
-Product Name
-Product URL
-Product Price
+# Scraping Product Data
+The scraper extracts the following product information:
+
+<li>Brand Name</li>
+<li>Product Name (German product names are supported)</li>
+<li>Product URL</li>
+<li>Product Price</li>
+<li>Premium Delivery Status</li>
+
+# Monitoring New Products
+<p>The script checks for new products by comparing product names with previous imports.<br>
+Only new products are saved to the CSV files.<br>
+You can monitor product arrivals over time and track changes.</p>
 
 # Scheduled Execution
 The script runs on a schedule defined by the import_interval variable. It will automatically update the product data at the specified interval.
