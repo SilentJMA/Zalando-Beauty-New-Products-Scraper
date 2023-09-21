@@ -12,7 +12,7 @@ current_date = datetime.now().strftime("%d%m%Y%H%M%S")
 csv_filename = f'Zalando_new_products_{current_date}.csv'
 
 # Define the limit of products to collect (84 products).
-product_limit = 30
+product_limit = 31
 
 # Define the interval for running the import (in seconds, set to 24 hours).
 import_interval = 24 * 60 * 60  # 24 hours
