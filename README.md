@@ -1,4 +1,4 @@
-# Zalando-Beauty-New-Product-Scraper
+# Zalando-Beauty-New-Products-Scraper
 
 Zalando Beauty New Product Scraper is a Python script for scraping product information from the [Zalando](https://www.zalando.de/) website and saving it to a CSV file. It allows you to collect and monitor new product arrivals in a specific category over time.
 
@@ -33,6 +33,10 @@ Before using the Zalando Product Scraper, ensure you have the following prerequi
    git clone https://github.com/SilentJMA/Zalando-Beauty-New-Product-Scraper.git
 ```
 2. Change to the project directory:
+
+```bash
+cd Zalando-Beauty-New-Product-Scraper
+```
 
 3. Install the required Python packages:
 
