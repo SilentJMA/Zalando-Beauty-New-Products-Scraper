@@ -5,7 +5,7 @@ import time
 from datetime import datetime, timedelta
 import os
 
-# Define the URL of the zalando.de category you want to scrape.
+# Define the URL of the zalando.de category or Brand page you want to scrape.
 url = 'https://en.zalando.de/beauty-skincare/?order=activation_date'
 
 # Define the CSV directory to save the results.
@@ -24,13 +24,19 @@ product_limit = 30
 import_interval = 24 * 60 * 60  # 24 hours
 
 # Function to scrape and save the data to a CSV file
+# Define the waiting time (in seconds) after sending the HTTP GET request.
+request_wait_time = 5  # Adjust as needed.
+
+# Function to scrape and save the data to a CSV file
 def scrape_and_save_to_csv():
     # Send an HTTP GET request to the URL.
     response = requests.get(url)
 
     # Check if the request was successful (status code 200).
     if response.status_code == 200:
-        # Parse the HTML content of the page using BeautifulSoup.
+        # Wait for a moment to be respectful of the website.
+        time.sleep(request_wait_time)
+
         soup = BeautifulSoup(response.text, 'html.parser')
 
         # Find the elements containing product information (adjust this based on website structure).
