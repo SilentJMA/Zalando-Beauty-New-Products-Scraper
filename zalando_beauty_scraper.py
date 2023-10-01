@@ -109,11 +109,14 @@ def load_previous_products():
 def is_new_product(product_name, previous_products):
     return product_name not in previous_products
 
-# Infinite loop to run the import every 24 hours
-while True:
-    scrape_and_save_to_csv()
+scrape_and_save_to_csv()
+print("Importing and data saving process complete.")
+
+# Infinite loop to run the import every 24 hours to activate it remove "#" from each line below and comment line 112 & 113 with "#"
+#while True:
+ #   scrape_and_save_to_csv()
     # Calculate the next import time
-    next_import_time = datetime.now() + timedelta(seconds=import_interval)
-    print(f"Next import will occur at: {next_import_time}")
+    # next_import_time = datetime.now() + timedelta(seconds=import_interval)
+    # print(f"Next import will occur at: {next_import_time}")
     # Sleep until the next import time
-    time.sleep(import_interval)
+    #time.sleep(import_interval)
